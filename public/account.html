@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Profile</title>
+  <link rel="stylesheet" href="account.css" />
+  
+</head>
+<body>
+  <nav id="navbar" style="background: #f8f8f8; padding: 10px; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <a href="index.html">Home</a> |
+      <a href="finddoc.html">Find Doctor</a>
+    </div>
+    <div id="userInfo" style="display: flex; align-items: center; gap: 10px;">
+      <img id="userPic" src="fpf.jpg" alt="User Pic" style="width: 32px; height: 32px; border-radius: 50%;" />
+      <span id="username">Loading...</span>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </nav>
+  <div class="account-container">
+    <h1><img src="fpf.jpg" id="userPic"> User Profile</h1>
+    <div class="info">
+      <p><strong>Full Name:</strong> <span id="fullname"></span></p>
+      <p><strong>Username:</strong> <span id="username"></span></p>
+      <p><strong>Email:</strong> <span id="email"></span></p>
+      <p><strong>Phone:</strong> <span id="phone"></span></p>
+    </div>
+
+    <!-- Prescriptions Section -->
+    <div class="prescriptions-section mt-4">
+      <h2>Your Prescriptions</h2>
+      <div id="prescriptionList"></div>
+      <button id="refreshButton" onclick="refreshPrescriptions()">Refresh Prescriptions</button>
+    </div>
+
+    <button onclick="logout()">Logout</button>
+  </div>
+  <h2>My Appointments</h2>
+  <div id="patientBookings">
+    <p>Loading your appointments...</p>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("user"));
+  
+    if (!user) {
+      alert("You're not logged in.");
+      window.location.href = "/Login.html";
+    } else {
+      document.getElementById("fullname").textContent = user.fullname;
+      document.getElementById("username").textContent = user.username;
+      document.getElementById("email").textContent = user.email;
+      document.getElementById("phone").textContent = user.phone;
+    }
+  
+    function logout() {
+      localStorage.clear();
+      alert("You have been logged out.");
+      window.location.href = "/Login.html";
+    }
+  
+    async function loadPrescriptions() {
+      const patientId = user._id || user.id;
+      const res = await fetch(`http://localhost:5000/api/prescriptions/patient/${patientId}`);
+      const prescriptions = await res.json();
+      const updatedState = JSON.parse(localStorage.getItem('updatedPrescriptions')) || {};
+  
+      const prescriptionList = document.getElementById("prescriptionList");
+      prescriptionList.innerHTML = "";
+  
+      if (!prescriptions.length) {
+        prescriptionList.innerHTML = "<p>You have no prescriptions.</p>";
+        return;
+      }
+  
+      prescriptions.forEach(p => {
+        const remainingPills = updatedState[p._id]?.totalPills ?? p.totalPills;
+  
+        if (remainingPills <= 0) return;
+  
+        const item = document.createElement("div");
+        item.className = "prescription-item";
+        item.setAttribute("data-prescription-id", p._id);
+  
+        item.innerHTML = `
+          <strong>Medication:</strong> ${p.medication}<br>
+          <strong>Interval:</strong> ${p.interval} ${p.intervalUnit || "minutes"}<br>
+          <strong>Total Pills:</strong> <span class="total-pills">${remainingPills}</span><br>
+          <label>
+            <input type="checkbox" class="pill-checkbox" data-prescription-id="${p._id}">
+            Take Pill
+          </label>
+          <span class="timestamp" style="color:green; display:none;"></span>
+          <hr>
+        `;
+        prescriptionList.appendChild(item);
+      });
+    }
+  
+    function refreshPrescriptions() {
+      const updatedPrescriptions = JSON.parse(localStorage.getItem('updatedPrescriptions')) || {};
+      const items = document.querySelectorAll('.prescription-item');
+  
+      items.forEach(item => {
+        const id = item.dataset.prescriptionId;
+        const checkbox = item.querySelector('.pill-checkbox');
+        const timestampElement = item.querySelector('.timestamp');
+        let pills = parseInt(item.querySelector('.total-pills').textContent);
+  
+        if (checkbox.checked && pills > 0) {
+          pills -= 1;
+          if (pills === 0) item.style.display = "none";
+          item.querySelector('.total-pills').textContent = pills;
+          checkbox.checked = false;
+        }
+  
+        updatedPrescriptions[id] = { totalPills: pills };
+      });
+  
+      localStorage.setItem('updatedPrescriptions', JSON.stringify(updatedPrescriptions));
+    }
+  
+    document.getElementById("refreshButton").addEventListener("click", refreshPrescriptions);
+    window.addEventListener("load", loadPrescriptions);
+
+    document.addEventListener("DOMContentLoaded", async function () {
+      const patientId = user._id || user.id;
+      if (!patientId) {
+        document.getElementById('patientBookings').innerHTML = "<p>Error: Patient ID missing.</p>";
+        return;
+      }
+
+      try {
+        const response = await fetch(`http://localhost:5000/api/bookings/patient/${patientId}`);
+        const bookings = await response.json();
+
+        const bookingsDiv = document.getElementById('patientBookings');
+        if (bookings.length === 0) {
+          bookingsDiv.innerHTML = "<p>No appointments found.</p>";
+          return;
+        }
+
+        bookingsDiv.innerHTML = bookings.map((booking, index) => `
+          <div class="booking-card" id="booking-${index}">
+            <h3>Doctor: ${booking.doctorId.fullname}</h3>
+            <p>Date: ${new Date(booking.date).toLocaleDateString()}</p>
+            <p>Time: ${booking.time}</p>
+            <p>Status: ${booking.status || 'Confirmed'}</p>
+            <button onclick="toggleReviewForm(${index})">Leave a Review</button>
+            <div class="review-form" id="review-form-${index}" style="display: none;">
+              <label>Doctor's Attitude:
+                <select id="attitude-${index}">
+                  ${[1,2,3,4,5].map(n => `<option value="${n}">${n}</option>`).join('')}
+                </select>
+              </label>
+              <label>Clinic Cleanliness:
+                <select id="cleanliness-${index}">
+                  ${[1,2,3,4,5].map(n => `<option value="${n}">${n}</option>`).join('')}
+                </select>
+              </label>
+              <label>Overall Experience:
+                <select id="experience-${index}">
+                  ${[1,2,3,4,5].map(n => `<option value="${n}">${n}</option>`).join('')}
+                </select>
+              </label>
+              <button onclick="submitReview(${index}, '${booking._id}')">Submit</button>
+            </div>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error("Failed to fetch bookings:", error);
+        document.getElementById('patientBookings').innerHTML = "<p style='color:red;'>Failed to load appointments.</p>";
+      }
+    });
+
+    function toggleReviewForm(index) {
+      const form = document.getElementById(`review-form-${index}`);
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+
+    async function submitReview(index, bookingId) {
+  const attitude = document.getElementById(`attitude-${index}`).value;
+  const cleanliness = document.getElementById(`cleanliness-${index}`).value;
+  const experience = document.getElementById(`experience-${index}`).value;
+
+  const reviewData = { bookingId, attitude, cleanliness, experience };
+
+  // Get the JWT token from localStorage
+  const token = localStorage.getItem('token');  // Token is stored in 'token'
+
+  // Check if token is available
+  if (!token) {
+    alert('You are not logged in. Please log in to submit a review.');
+    window.location.href = '/Login.html';  // Redirect to login page
+    return;
+  }
+
+  try {
+    const response = await fetch('http://localhost:5000/api/reviews', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,  // Send the token as Bearer token in headers
+      },
+      body: JSON.stringify(reviewData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert('Review submitted successfully!');
+    } else {
+      alert(`Error: ${data.error}`);
+    }
+  } catch (error) {
+    console.error('Error submitting review:', error);
+    alert('An error occurred while submitting the review.');
+  }
+
+  toggleReviewForm(index);  // Hide review form after submission
+}
+
+  </script>
+  
+</body>
+</html>

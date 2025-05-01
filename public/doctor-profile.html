@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Doctor Profile</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="doctor-profile.css" />
+</head>
+<body>
+  <nav id="navbar" style="background: #f8f8f865; padding: 10px; display: flex; justify-content: space-between; align-items: center; backdrop-filter:blur(10px);">
+    <div>
+      <a href="index.html">Home</a> |
+      <a href="finddoc.html">Find Doctor</a>
+    </div>
+    <div id="userInfo" style="display: flex; align-items: center; gap: 10px;">
+      <img id="userPic" src="pfp.jpg" alt="User Pic" style="width: 32px; height: 32px; border-radius: 50%;" />
+      <span id="username">Loading...</span>
+      <button onclick="logout()">Logout</button>
+    </div>
+  </nav>
+  
+  <div class="container mt-5">
+    <div class="profile-header text-center mb-4">
+      <h1 id="doctorName">Dr. Nour Salah</h1>
+      <p id="specialty">Dermatologist</p>
+    </div>
+
+    <div class="row">
+      <!-- Availability Setup -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow">
+          <div class="card-header text-white">Set Your Availability</div>
+          <div class="card-body">
+            <label for="dateInput">Choose Date:</label>
+            <input type="date" id="dateInput" class="form-control mb-2" />
+    
+            <label>Select Time Slots:</label>
+            <div class="d-flex flex-wrap gap-2 my-2">
+              <button class="btn btn-outline-primary time-btn">09:00</button>
+              <button class="btn btn-outline-primary time-btn">11:00</button>
+              <button class="btn btn-outline-primary time-btn">13:00</button>
+              <button class="btn btn-outline-primary time-btn">15:00</button>
+              <button class="btn btn-outline-primary time-btn">17:00</button>
+            </div>
+    
+            <button class="btn btn-success" onclick="saveAvailability()">Save Availability</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Upcoming Bookings -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow">
+          <div class="card-header text-white">Upcoming Bookings</div>
+          <div class="card-body">
+            <ul class="list-group" id="bookingList">
+              <!-- Dynamic Booking Items Here -->
+            </ul>
+    
+            <!-- Prescription Form -->
+            <div id="prescriptionForm" style="display: none;" class="mt-4">
+              <h5>Prescription</h5>
+    
+              <input type="text" id="medicationName" placeholder="Medication name" class="form-control mb-2" />
+    
+              <label>Interval Between Doses:</label>
+              <div class="d-flex align-items-center mb-2">
+                <input type="number" id="intervalAmount" class="form-control" style="width: 80px;" />
+                <select id="intervalUnit" class="form-control mx-2" style="width: 100px;">
+                  <option value="minutes">Minutes</option>
+                  <option value="hours">Hours</option>
+                </select>
+              </div>
+    
+              <label>Total Pills:</label>
+              <input type="range" min="1" max="30" id="pillCount" class="form-range" />
+              <span id="pillCountValue">15</span>
+    
+              <button class="btn btn-primary mt-3" onclick="sendPrescription()">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- JS Files -->
+  <script src="doctor-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,651 @@
+/*------------------------------------------------
+  Base Reset & Fonts
+------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "SUSE", sans-serif;
+}
+
+:root {
+    --mainColor: #f8f8f8; /* Off white as primary */
+    --textColor: #ffffff; /* Dark blue for text */
+    --gradientStart: #f5f5dc;
+    --gradientEnd: #04376a;
+
+}
+
+/*------------------------------------------------
+    General Selections & Body Background
+------------------------------------------------*/
+::selection {
+    background-color: var(--mainColor);
+    color: var(--textColor);
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+body {
+    background: linear-gradient(to bottom right, var(--mainColor), var(--gradientEnd));
+    height: 100%;
+    color: var(--textColor);
+}
+
+/*------------------------------------------------
+    Header Section
+------------------------------------------------*/
+header {
+    background-color: rgba(3, 82, 119, 0.137);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.625rem 1.875rem;
+    backdrop-filter: blur(10px);
+    border-radius: 0.625rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.875rem;
+    position: sticky;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--textColor);
+    padding: 0.5rem 0.9375rem;
+    border-radius: 1.25rem;
+    text-shadow: 0.03125rem 0.03125rem 0.03125rem rgba(0, 0, 0, 0.5);
+    font-size: larger;
+    font-weight: bolder;
+}
+
+nav ul li a.active {
+    color: rgb(255, 255, 255);
+    text-shadow: 
+        -1px -1px 0 #00000028,  
+         1px -1px 0 #00000034,
+        -1px  1px 0 #00000031,
+         1px  1px 0 #0000002b;
+}
+
+.logo {
+    font-size: 4vh;
+    font-weight: bolder;
+    color: var(--textColor);
+    text-shadow: 0.0625rem 0.0625rem 0.0625rem rgb(160, 158, 160);
+}
+
+/*------------------------------------------------
+    MAIN SECTION
+------------------------------------------------*/
+.bodyy {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: var(--textColor);
+}
+
+main {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3.125rem;
+    z-index: 2;
+}
+
+/* Main background using docs.png with 2px blur */
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('medbg.jpg') center center no-repeat;
+    background-size: cover;
+    filter: blur(2px);
+    z-index: -1;
+}
+
+/* Content inside main */
+.content {
+    text-align: center;
+    max-width: 100rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0.625rem 0.625rem 0.5rem rgba(0, 0, 0, 0.218);
+    display: block;
+    backdrop-filter: blur(7px);
+}
+
+h1 {
+    font-size: 3.125rem;
+    z-index: 1;
+    padding-top: 10vh;
+}
+
+h2 {
+    font-size: 1.875rem;
+    z-index: 1;
+    margin-top: 1rem;
+}
+
+/*------------------------------------------------
+    Button Styling (for Sign Up)
+------------------------------------------------*/
+a {
+    color: initial;
+    text-decoration: none;
+}
+
+button {
+    --arrow-width: 0.625rem;
+    --arrow-stroke: 0.125rem;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 1.25rem;
+    color: rgba(0, 33, 71, 0.537);
+    font-size: 1.8rem;
+    font-weight: 700;
+    -webkit-text-stroke: 0.2px rgba(255, 255, 255, 0.312);
+    text-transform: uppercase;
+    text-shadow: 0.625rem 0.625rem 0.5rem rgba(255, 255, 255, 0.3);
+    padding: 0.3em 0.5em;
+    background: rgba(255, 255, 255, 0.085);
+    display: flex;
+    transition: background 0.2s, transform 0.2s;
+    align-items: center;
+    gap: 0.375rem;
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.content button {
+    margin-top: 1rem;
+}
+
+button .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button .arrow {
+    margin-top: 0.0625rem;
+    width: var(--arrow-width);
+    background: rgba(0, 33, 71, 0.499);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+button .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid rgba(0, 33, 71, 0.8);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -0.1875rem;
+    right: 0.0875rem;
+    transition: 0.2s;
+    padding: 0.1875rem;
+    transform: rotate(-45deg);
+}
+
+button:hover {
+    background-color:rgba(255, 255, 255, 0.547);
+    transform: scale(1.05);
+    color: #f8f8f8;
+}
+
+button:hover .arrow {
+    background: rgba(0, 33, 71, 0.8);
+}
+
+button:hover .arrow:before {
+    right: 0;
+}
+
+/*------------------------------------------------
+    Burger Menu & Responsive Navbar
+------------------------------------------------*/
+.burger input {
+    display: none;
+}
+
+@media (max-width: 48rem) {
+    header {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0.625rem 0.9375rem;
+    }
+    nav {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 0.625rem;
+        margin-left: 1rem;
+        text-align: left;
+    }
+    nav ul.active {
+        display: flex;
+    }
+    nav ul li a {
+        text-align: left;
+        padding: 0.625rem;
+    }
+    .burger {
+        position: relative;
+        width: 2.5rem;
+        height: 1.875rem;
+        background: transparent;
+        cursor: pointer;
+        display: block;
+        margin-left: 1rem;
+    }
+    .burger input {
+        display: none;
+    }
+    .burger span {
+        display: block;
+        position: absolute;
+        height: 0.25rem;
+        width: 100%;
+        background: var(--textColor);
+        border-radius: 0.5625rem;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: 0.25s ease-in-out;
+    }
+    .burger span:nth-of-type(1) {
+        top: 0;
+        transform-origin: left center;
+    }
+    .burger span:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: left center;
+    }
+    .burger span:nth-of-type(3) {
+        top: 100%;
+        transform-origin: left center;
+        transform: translateY(-100%);
+    }
+    .burger input:checked ~ span:nth-of-type(1) {
+        transform: rotate(45deg);
+        top: 0;
+        left: 0.3125rem;
+    }
+    .burger input:checked ~ span:nth-of-type(2) {
+        width: 0;
+        opacity: 0;
+    }
+    .burger input:checked ~ span:nth-of-type(3) {
+        transform: rotate(-45deg);
+        top: 1.75rem;
+        left: 0.3125rem;
+    }
+}
+
+/*------------------------------------------------
+    Footer Section
+------------------------------------------------*/
+.footer {
+    text-align: center;
+    background-color: rgba(0, 33, 71, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.25rem;
+}
+
+.container {
+    padding-top: 1.25rem;
+}
+
+.social-media {
+    margin-bottom: 1.25rem;
+}
+
+.social-btn {
+    margin: 0.3125rem;
+    font-size: 1.5rem;
+    color: var(--textColor);
+    transition: color 0.3s;
+}
+
+.social-btn:hover {
+    color: #c4e7f7;
+}
+
+.copyright {
+    padding: 0.625rem;
+    background-color: rgba(0, 33, 71, 0.351);
+    color: var(--textColor);
+}
+
+.copyright a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+}
+
+/*------------------------------------------------
+    SERVICES CARDS SECTION 
+------------------------------------------------*/
+.cards-section {
+    padding: 2.5rem 1.25rem;
+    text-align: center;
+    background: transparent;
+}
+
+.section-title {
+    font-size: 4rem;
+    margin-bottom: 1.875rem;
+    color: var(--textColor);
+    font-weight: 700;
+    -webkit-text-stroke: 0.2px rgba(0, 33, 71, 0.279);
+    text-transform: uppercase;
+    text-shadow: 0.625rem 0.625rem 0.5rem rgba(0,0,0,0.3);
+
+}
+img#bgg{
+    filter: grayscale(100%);
+
+}
+
+/* Adjust gap so service cards are on the same level with extra space */
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 13rem;
+    padding-bottom: 4rem;
+}
+
+/* Card Wrapper: groups the doc image with the card so both scale together */
+.card-wrapper {
+    position: relative;
+    width: 18rem;
+    margin-top: 2.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card-wrapper.active {
+    transform: scale(1.2);
+    z-index: 2;
+}
+
+.card-wrapper.inactive {
+    transform: scale(0.95);
+    opacity: 0.7;
+}
+
+/* Doctor image: remains at 90% width of the wrapper, and is behind the card */
+.doc-icon {
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+/* The service card overlays approximately 20% of the doc image.
+   Its z-index is higher than the doc-icon so it appears in front. */
+.cardz {
+    background-color: rgba(0, 33, 71, 0.401);
+    border: 0.125rem solid #ccc;
+    border-radius: 0.9375rem;
+    width: 100%;
+    margin-top: -3.5rem;
+    padding: 2.5rem 1.25rem 5.25rem;
+    color: #f8f8f8;
+    font-size: 3vh;
+    text-align: center;
+    overflow: hidden;
+    transition: inherit;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    font-weight: 700;
+    -webkit-text-stroke: 0.2px rgba(0, 33, 71, 0.279);
+    text-transform: uppercase;
+    text-shadow: 0.625rem 0.625rem 0.5rem rgba(0,0,0,0.3);
+}
+
+/* Hover effect applied only on the card */
+.card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+    border-color: var(--mainColor);
+}
+
+.card h3 {
+    margin: 1.25rem 0 0.625rem;
+    color: #333;
+    font-size: 1.25rem;
+}
+ #cardaya{
+    top: -5rem;
+ }
+ #cardaya2{
+    top: -8rem;
+ }
+/* Make paragraphs in cards bigger and beige */
+.more-text {
+    display: none;
+    margin-bottom: 0.9375rem;
+    color: var(--textColor);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+/* Center the buttons inside cards */
+.read-more {
+    background: rgba(0, 0, 0, 0.155);
+    color: #ffffff;
+    border: none;
+    border-radius: 1.25rem;
+    padding: 0.625rem 0.9375rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+    font-size: 1rem;
+    border: 0.2px solid #4950572f;
+    display: block;
+    margin: 1rem auto 0;
+}
+
+.read-more:hover {
+    background: #ffffff3a;
+    color: var(--mainColor);
+    transform: scale(1.05);
+}
+
+/*------------------------------------------------
+    New Section: Count-Up and 3D Card in Flex Display
+------------------------------------------------*/
+.countup-cards-section {
+    padding: 5rem 3.125rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row-reverse;
+    gap: 3.125rem;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.countup {
+    width: 40vw;
+    height: 80vh;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-shadow: 0.625rem 0.625rem 0.5rem rgba(0, 0, 0, 0.218);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.countup-item p {
+    margin: 0.5rem 0;
+}
+
+.countup-number {
+    font-size: 10vh;
+    font-weight: bolder;
+    color: var(--textColor);
+}
+
+/* 3D Card (from Uiverse.io) */
+.card {
+    width: 40vw;
+    height: 60vh;
+    background-color: #ffffff27;
+   backdrop-filter: blur(10px);
+    border-radius: 8px;
+    color: var(--textColor);
+    overflow: hidden;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    cursor: pointer;
+    backdrop-filter: blur(19px);
+    background-image: url(bgz.jpg);
+    background-size: cover;
+}
+
+.card-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: var(--textColor);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.card-content .card-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: inherit;
+    text-transform: uppercase;
+    text-shadow: 0.625rem 0.625rem 0.5rem rgba(0,0,0,0.3);
+}
+
+.card-content .card-para {
+    color: var(--textColor);
+    opacity: 0.8;
+    font-size: 2rem;
+}
+
+.card:hover {
+    transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.137);
+    backdrop-filter: blur(10px);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    z-index: 1;
+}
+
+.card:hover:before {
+    transform: translateX(-100%);
+}
+
+.card:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+    z-index: 1;
+}
+
+.card:hover:after {
+    transform: translateX(100%);
+}
+
+/*------------------------------------------------
+    Scroll Snap & Animation
+------------------------------------------------*/
+section {
+    scroll-snap-align: start;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*------------------------------------------------
+    Responsive Adjustments
+------------------------------------------------*/
+@media (max-width: 768px) {
+    main {
+        width: 100%;
+        margin: 0;
+    }
+    .card,
+    .countup,
+    .cardz {
+        width: 90%;
+    }
+    .cards {
+        gap: 1rem;
+    }
+    .countup-cards-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

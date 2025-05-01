@@ -1,0 +1,219 @@
+/* Color Palette */
+:root {
+    --primary-color: #04376a; /* Dark Blue */
+    --secondary-color: #063970; /* Lighter Dark Blue */
+    --background-color: #f4f7fb; /* Light Background */
+    --card-background: #ffffff; /* White */
+    --hover-bg-color: #eaf1fb; /* Light Blue Hover */
+    --button-bg-color: #04376a; /* Button Background */
+    --button-hover-bg-color: #022f5cac; /* Darker Button Hover */
+    --text-color: #333; /* Dark Text */
+    --secondary-text-color: #555; /* Lighter Text */
+    --border-color: #ddd; /* Border Color */
+    --time-btn-border-color: #04376a; /* Time Button Border */
+    --pill-count-color: #04376a; /* Pill Count Color */
+  }
+  
+  /* Base Styling */
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+        to right bottom,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0.2)
+      ),
+      url("fdbg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navbar */
+  nav #navbar {
+    background-color:#ffffff61;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  #navbar h3 {
+    margin: 0;
+    font-size: 2rem;
+    color: #04376a;
+    background-color:#ffffff11;
+  }
+  
+  #navbar h3 a {
+    color: #04376a;
+    text-decoration: none;
+    background-color:#ffffff11;
+  }
+  
+  #navbar a {
+    text-decoration: none;
+    color: #04376a;
+    margin-left: 1rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    background-color:#ffffff11;
+  }
+  
+  #navbar a:hover {
+    color: #cccccc;
+  }
+  
+  /* Search Section */
+  .search-container {
+    margin-top: 100px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .search-input {
+    padding: 0.6rem 1rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--border-color);
+    width: 200px;
+  }
+  
+  .search-btn {
+    background-color: var(--button-bg-color);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background-color: var(--button-hover-bg-color);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 767px) {
+    nav#navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem 1.5rem;
+    }
+  
+    .search-container {
+      margin-top: 140px;
+    }
+  
+    .search-input {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  /* Button Styles */
+  .date-btn,
+  .book-btn {
+    background-color: var(--button-bg-color) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 1rem !important;
+    padding: 0.6rem 1.2rem !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .date-btn:hover,
+  .book-btn:hover {
+    background-color: var(--button-hover-bg-color) !important;
+  }
+  
+  .date-btn.active,
+  .time-btn.active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border-color: var(--primary-color) !important;
+  }
+  
+  /* Doctor Cards */
+  .doctor-card {
+    width: 33vw;
+    margin: 2rem auto;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .doctor-card:hover,
+  .doctor-card.expanded {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 3px solid #0658aa;
+  }
+  
+  .card-header-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .doctor-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .doctor-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0.5rem 0 0.2rem;
+  }
+  
+  .doctor-specialty {
+    font-size: 1.1rem;
+    color: var(--secondary-text-color);
+  }
+  
+  /* When expanded */
+  .doctor-card.expanded .card-header-view {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    gap: 1rem;
+  }
+  
+  .doctor-card.expanded .doctor-img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .doctor-card.expanded .doctor-name {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  
+  .doctor-card.expanded .doctor-specialty {
+    font-size: 0.9rem;
+  }
+  .d-flex{
+color: #ffffff;
+font-size: 4vh;
+
+  }

@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+          to right bottom,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.2)
+        ),
+        url("bgs.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.container .sign {
+    width: 50%;
+    margin: auto;
+    background-color: hsla(10, 5%, 30%, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.4);
+}
+
+.container h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 7%;
+
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    width: 30%;
+    padding: 10px;
+    background-color: #04376a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 36%;
+}
+
+input[type="submit"]:hover {
+    background-color: #ffffff;
+    color: #04376a;
+    scale: (1.1);
+    font-size: 17px;
+    border: #04376a solid 0.3px;
+}
+button{
+    width: 30%;
+    padding: 10px;
+    background-color: #04376a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 36%;
+}
+button:hover {
+    background-color: #ffffff;
+    color: #04376a;
+    scale: (1.1);
+    font-size: 17px;
+    border: #04376a solid 0.3px;
+}
+
+
+

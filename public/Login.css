@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+          to right bottom,
+          rgba(0, 0, 0, 0.8),
+          rgba(0, 0, 0, 0.2)
+        ),
+        url("bgb.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    background-color: hsla(0, 0%, 100%, 0.168);
+    padding: 20px;
+    box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.4);
+    width: 40%;
+    height: 400px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+  
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 15px;
+  }
+  .input-group input:hover{
+    scale: (1.1);
+    background-color:rgba(196, 244, 255, 0.426);
+  }
+  
+  button {
+    width: 30%;
+    padding: 10px;
+    background-color: #04376a;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  
+  }
+  
+  button:hover {
+    background-color: #ffffff;
+    color: #04376a;
+    scale: (1.1);
+    font-size: 17px;
+    border: #04376a solid 0.3px;
+  }
+  a{
+    text-decoration: none;
+    color: #04376a;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  

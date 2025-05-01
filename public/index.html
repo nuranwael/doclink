@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOCLINK</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="imgs/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <!-- Header & Main Sections -->
+  <section class="bodyy" id="home">
+    <header>
+      <nav>
+        <div class="logo" style="cursor: pointer;" onclick="location.href='index.html'">
+          DOCLINK
+        </div>
+        <!-- Hamburger Menu -->
+        <label class="burger" for="burger">
+          <input type="checkbox" id="burger" />
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </nav>
+      <nav>
+        <ul id="navLinks">
+          <li><a href="#home" class="active">HOME</a></li>
+          <li><a href="finddoc.html">OUR DOCTORS</a></li>
+          <li><a href="signup.html">SIGNUP</a></li> 
+          <li><a href="doclink.html">اللغة العربية</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="content">
+        <h1>Welcome to DOCLINK!</h1>
+        <h2>Your one-stop platform for booking doctor's appointments, managing digital prescriptions, and finding local doctors in El Minya.</h2>
+      </div>
+      <div>
+        <a href="Signup.html"> <button>
+          <l1><a href="Signup.html">Sign Up</a></l1>
+          <div class="arrow-wrapper">
+            <div class="arrow"></div>
+          </div>
+        </button></a>
+        
+      </div>
+      
+    </main>
+  </section>
+
+  <!-- Count-Up Section -->
+  <section class="countup-cards-section">
+    <div class="countup">
+      <div class="countup-item">
+        <p class="countup-number">250</p>
+        <p>Doctors Available</p>
+      </div>
+      <div class="countup-item">
+        <p class="countup-number">1000</p>
+        <p>Happy Patients</p>
+      </div>
+      <div class="countup-item">
+        <p class="countup-number">1020</p>
+        <p>Appointments Booked</p>
+      </div>
+    </div>
+
+   <a href="Finddoc.html"> 
+    <div class="card fade-in">
+      <div class="card-content">
+        <p class="card-title">book your appointments in one click</p>
+        
+        <button>
+          start booking!
+          <div class="arrow-wrapper">
+            <div class="arrow"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+   </a>
+  </section>
+
+  <!-- Services Cards Section -->
+  <section class="cards-section">
+    <h2 class="section-title">Our Services</h2>
+    <div class="cards" id="cardaya2">
+      <div class="card-wrapper">
+        <img src="note.png" alt="Appointment Booking" class="doc-icon" />
+        <div class="cardz">
+          <h3>your prescriptions are digital!</h3>
+          <p class="more-text">
+            with DOCLINK you can now access your prescriptions whenever and wherever you want to easily with just a click easy and safe.
+          </p>
+          <button class="read-more">Read More &gt;</button>
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <img src="devs.png" alt="Digital Prescription" class="doc-icon" />
+        <div class="cardz">
+          <h3>available on all devices!</h3>
+          <p class="more-text">
+            you can access your account on DOCLINK on any device that supports web services.
+          </p>
+          <button class="read-more">Read More &gt;</button>
+        </div>
+      </div>
+
+      <div class="card-wrapper" id="cardaya">
+        <img src="bgg.png" alt="Local Doctors" class="doc-icon" id="bgg"/>
+        <div class="cardz">
+          <h3>local doctors in ELMINYA!</h3>
+          <p class="more-text">
+            Find and connect with certified doctors in El Minya ready to serve your needs.
+          </p>
+          <button class="read-more">Read More &gt;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="partners">
+    <div class="container">
+      <section class="social-media">
+        <a class="btn social-btn" href="#!" role="button">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="btn social-btn" href="#!" role="button">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="btn social-btn" href="#!" role="button">
+          <i class="fab fa-google"></i>
+        </a>
+        <a class="btn social-btn" href="#!" role="button">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="btn social-btn" href="#!" role="button">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a class="btn social-btn" href="#!" role="button">
+          <i class="fab fa-github"></i>
+        </a>
+      </section>
+    </div>
+    <div class="copyright">
+      © 2025 Copyright:
+      <a href="index.html">DOCLINK.com</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript for scroll reveal (optional, place in a separate file if needed) -->
+  <script src="script.js">
+  </script>
+</body>
+</html>

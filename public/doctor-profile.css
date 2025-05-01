@@ -1,0 +1,162 @@
+/* Color Palette */
+:root {
+  --primary-color: #04376a; /* Dark Blue */
+  --secondary-color: #063970; /* Lighter Dark Blue */
+  --background-color: #f4f7fb; /* Light Background */
+  --card-background: #ffffff; /* White */
+  --hover-bg-color: #eaf1fb; /* Light Blue Hover */
+  --button-bg-color: #04376a; /* Button Background */
+  --button-hover-bg-color: #022f5c; /* Darker Button Hover */
+  --text-color: #333; /* Dark Text */
+  --secondary-text-color: #555; /* Lighter Text */
+  --border-color: #ddd; /* Border Color */
+  --time-btn-border-color: #04376a; /* Time Button Border */
+  --pill-count-color: #04376a; /* Pill Count Color */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+  font-size: 1rem; /* Set base font size */
+}
+
+nav#navbar {
+  background-color: rgba(255, 255, 255, 0.125);
+  border-bottom: 0.1rem solid var(--border-color);
+  padding: 1vh 3vw;
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+#navbar a {
+  text-decoration: none;
+  color: var(--text-color);
+  margin-right: 3vw;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+#navbar a:hover {
+  color: var(--secondary-color); /* darker blue on hover */
+}
+
+#userInfo {
+  display: flex;
+  align-items: center;
+}
+
+#userPic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.2rem solid var(--secondary-color);
+}
+
+#username {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+button {
+  border: none;
+  padding: 0.5rem 1vw;
+  border-radius: 0.4rem;
+  background-color: var(--button-bg-color);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg-color); /* darker blue on hover */
+}
+
+/* Profile Header */
+.profile-header h1 {
+  color: var(--primary-color);
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.profile-header p {
+  font-size: 1.2rem;
+  color: var(--secondary-text-color);
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: var(--card-background);
+}
+
+.card-header {
+  font-weight: 600;
+  font-size: 1.1rem;
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Time Slot Buttons */
+.time-btn {
+  min-width: 10vw;
+  font-weight: 500;
+  border-color: var(--time-btn-border-color);
+  color: var(--time-btn-border-color);
+  transition: background-color 0.3s ease;
+}
+
+.time-btn:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Upcoming Bookings */
+#bookingList li {
+  margin-bottom: 1.2rem;
+  border: 0.1rem solid #e0e0e0;
+  border-radius: 0.6rem;
+  padding: 1rem;
+  transition: background 0.3s ease;
+  background-color: var(--card-background);
+}
+
+#bookingList li:hover {
+  background-color: var(--hover-bg-color); /* subtle light blue */
+}
+
+/* Prescription Form */
+#prescriptionForm input,
+#prescriptionForm select {
+  margin-bottom: 1.2rem;
+  border: 0.1rem solid #ccc;
+  padding: 0.8rem;
+}
+
+#pillCountValue {
+  font-weight: bold;
+  color: var(--pill-count-color);
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+  nav#navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2vh 3vw;
+  }
+
+  #userInfo {
+    margin-top: 2vh;
+  }
+
+  .profile-header h1 {
+    font-size: 1.8rem;
+  }
+}
