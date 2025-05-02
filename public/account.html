@@ -46,7 +46,7 @@
   
     if (!user) {
       alert("You're not logged in.");
-      window.location.href = "/Login.html";
+      window.location.href = "/login.html";
     } else {
       document.getElementById("fullname").textContent = user.fullname;
       document.getElementById("username").textContent = user.username;
@@ -57,7 +57,7 @@
     function logout() {
       localStorage.clear();
       alert("You have been logged out.");
-      window.location.href = "/Login.html";
+      window.location.href = "/login.html";
     }
   
     async function loadPrescriptions() {
