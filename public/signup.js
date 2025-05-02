@@ -35,7 +35,7 @@ document.getElementById('signupForm').addEventListener('submit', async function 
     console.log("📤 Sending user data to backend:", userData);
 
     try {
-        const response = await fetch('https://doclink-production.up.railway.app/signup.html', {
+        const response = await fetch("https://doclink-production.up.railway.app/api/users/signup", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData),
