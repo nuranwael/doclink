@@ -39,7 +39,7 @@ app.use('/api/admin', adminRoutes);
 
 
 // Frontend static path
-const staticPath = 'D:/proj_3/doclink/proj';
+const staticPath = path.join(__dirname, 'public');
 console.log("✅ Using hardcoded static path:", staticPath);
 
 // Serve frontend
