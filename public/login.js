@@ -10,7 +10,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
     }
 
     try {
-        const response = await fetch("http://localhost:5000/api/users/login", {
+        const response = await fetch("https://doclink-production.up.railway.app/login.html", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password })
