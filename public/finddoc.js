@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 async function fetchDoctors() {
     try {
-        const response = await fetch("http://localhost:5000/api/doctors");
+        const response = await fetch("doclink-production.up.railway.app/api/doctors");
         const doctors = await response.json();
 
         const doctorListContainer = document.querySelector(".list-group");
@@ -86,7 +86,7 @@ doctorCard.addEventListener("click", async function (e) {
 
 async function loadAvailability(card, doctorId, doctorName) {
     try {
-        const res = await fetch(`http://localhost:5000/api/availability/${doctorId}`);
+        const res = await fetch(`doclink-production.up.railway.app/api/availability/${doctorId}`);
         const slots = await res.json();
 
         if (!Array.isArray(slots)) {
@@ -146,7 +146,7 @@ async function loadAvailability(card, doctorId, doctorName) {
             }
 
             try {
-                const response = await fetch("http://localhost:5000/api/bookings", {
+                const response = await fetch("doclink-production.up.railway.app/api/bookings", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -176,7 +176,7 @@ async function loadAvailability(card, doctorId, doctorName) {
 }
 async function loadReviews(doctorId, card) {
     try {
-      const res = await fetch(`http://localhost:5000/api/reviews/doctor/${doctorId}`);
+      const res = await fetch(`doclink-production.up.railway.app/api/reviews/doctor/${doctorId}`);
       const reviews = await res.json();
   
       const reviewsList = card.querySelector('.reviews-list');

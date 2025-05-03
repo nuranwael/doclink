@@ -37,7 +37,7 @@ async function saveAvailability() {
     return alert("Pick a date and at least one time slot.");
   }
 
-  const res = await fetch("http://localhost:5000/api/availability", {
+  const res = await fetch("doclink-production.up.railway.app/api/availability", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -58,7 +58,7 @@ async function loadUpcomingBookings() {
   const doctorId = doctor._id || doctor.id;
 
   try {
-    const res = await fetch(`http://localhost:5000/api/bookings/doctor/${doctorId}`);
+    const res = await fetch(`doclink-production.up.railway.app/api/bookings/doctor/${doctorId}`);
     const bookings = await res.json();
 
     const list = document.getElementById("bookingList");

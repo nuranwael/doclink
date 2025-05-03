@@ -1,5 +1,5 @@
 async function fetchData(endpoint) {
-    const res = await fetch(`http://localhost:5000/api/admin/${endpoint}`);
+    const res = await fetch(`doclink-production.up.railway.app/api/admin/${endpoint}`);
     return res.json();
   }
   
@@ -91,7 +91,7 @@ async function loadReviews() {
   
     if (confirm.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:5000/api/admin/users/${userId}`, {
+        const res = await fetch(`doclink-production.up.railway.app/api/admin/users/${userId}`, {
           method: 'DELETE'
         });
         const result = await res.json();
@@ -122,7 +122,7 @@ async function loadReviews() {
   
     if (confirm.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:5000/api/admin/bookings/${bookingId}`, { method: 'DELETE' });
+        const res = await fetch(`doclink-production.up.railway.app/api/admin/bookings/${bookingId}`, { method: 'DELETE' });
         const result = await res.json();
         if (res.ok) {
           Swal.fire('Deleted!', result.message, 'success');
@@ -148,7 +148,7 @@ async function loadReviews() {
   
     if (confirm.isConfirmed) {
       try {
-        const res = await fetch(`http://localhost:5000/api/admin/reviews/${reviewId}`, { method: 'DELETE' });
+        const res = await fetch(`doclink-production.up.railway.app/api/admin/reviews/${reviewId}`, { method: 'DELETE' });
         const result = await res.json();
         if (res.ok) {
           Swal.fire('Deleted!', result.message, 'success');
