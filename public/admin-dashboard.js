@@ -196,7 +196,7 @@ async function loadReviews() {
   // Logout
   function logout() {
     localStorage.clear();
-    window.location.href = "/Login.html";
+    window.location.href = "/login.html";
   }
 
   let bookingsChart;
