@@ -1,4 +1,4 @@
-// Burger Menu functionality (unchanged)
+//menu
 const burgerCheckbox = document.getElementById('burger');
 const navLinks = document.getElementById('navLinks');
 
@@ -9,8 +9,7 @@ burgerCheckbox.addEventListener('change', () => {
     navLinks.classList.remove('active');
   }
 });
-
-// Services Cards Toggle: Now applied on the .card-wrapper so that the doc icon scales with the card.
+//cards
 const wrappers = document.querySelectorAll('.card-wrapper');
 
 wrappers.forEach(wrapper => {
@@ -20,7 +19,7 @@ wrappers.forEach(wrapper => {
   button.addEventListener('click', () => {
     const isActive = wrapper.classList.contains('active');
 
-    // Collapse any other active card wrappers
+  
     wrappers.forEach(otherWrapper => {
       if (otherWrapper !== wrapper) {
         otherWrapper.classList.remove('active', 'inactive');
@@ -32,17 +31,17 @@ wrappers.forEach(wrapper => {
     });
 
     if (isActive) {
-      // Collapse this wrapper
+      
       wrapper.classList.remove('active');
       moreText.style.display = 'none';
       button.textContent = 'Read More >';
     } else {
-      // Expand this wrapper
+    
       wrapper.classList.add('active');
       moreText.style.display = 'block';
       button.textContent = 'Read Less <';
 
-      // Mark all other wrappers as inactive
+    
       wrappers.forEach(otherWrapper => {
         if (otherWrapper !== wrapper) {
           otherWrapper.classList.add('inactive');

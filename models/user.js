@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     lowercase: true,
   },
     
-  // Doctor-specific fields
+  
   specialty: { type: String },
   address: { type: String },
 }, { timestamps: true });

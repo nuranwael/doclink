@@ -1,10 +1,9 @@
-
 const express = require('express');
 const Booking = require('../models/Booking');
 const Availability = require('../models/Availability');
 const router = express.Router();
 
-// 👉 Create a new booking
+// Create booking
 router.post('/', async (req, res) => {
   const { doctorId, patientId, date, time } = req.body;
 
@@ -13,17 +12,17 @@ router.post('/', async (req, res) => {
   }
 
   try {
-    // Check if time slot is already booked
+   
     const existingBooking = await Booking.findOne({ doctorId, date, time });
     if (existingBooking) {
       return res.status(409).json({ error: 'This time slot is already booked.' });
     }
 
-    // Create booking
+    
     const booking = new Booking({ doctorId, patientId, date, time });
     await booking.save();
 
-    // Remove the booked time slot from availability (optional but recommended)
+   
     await Availability.updateOne(
       { doctorId, date },
       { $pull: { timeSlots: time } }
@@ -36,7 +35,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// 👉 Get bookings for a doctor
+// display bookings for a doctor
 router.get('/doctor/:doctorId', async (req, res) => {
   try {
     const bookings = await Booking.find({ doctorId: req.params.doctorId })
@@ -48,7 +47,7 @@ router.get('/doctor/:doctorId', async (req, res) => {
   }
 });
 
-// 👉 Get bookings for a patient
+// Display bookings for a patient
 router.get('/patient/:patientId', async (req, res) => {
   try {
     const bookings = await Booking.find({ patientId: req.params.patientId })

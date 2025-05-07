@@ -22,7 +22,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
             alert("✅ Login successful!");
             console.log("✅ Server Response:", result);
 
-            // ✅ Save user + token in localStorage
+            
             localStorage.setItem("user", JSON.stringify(result.user));
             localStorage.setItem("token", result.token);
 
@@ -37,9 +37,7 @@ document.getElementById("loginForm").addEventListener("submit", async function (
             }
             if (user.role === 'admin') {
                 window.location.href = '/admin-dashboard.html';
-              } else {
-                window.location.href = '/account.html';  // for patients and doctors
-              }              
+              }         
               
         } else {
             alert("❌ Error: " + result.error);

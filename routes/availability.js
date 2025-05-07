@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const Availability = require('../models/Availability');
 
+
 // Create or update availability for a doctor
 router.post('/', async (req, res) => {
   const { doctorId, date, timeSlots } = req.body;
+
 
   try {
     let availability = await Availability.findOne({ doctorId, date });
@@ -22,6 +24,8 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Error saving availability' });
   }
 });
+
+
 
 // Get availability by doctor ID
 router.get('/:doctorId', async (req, res) => {

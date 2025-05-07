@@ -1,17 +1,17 @@
 /* Color Palette */
 :root {
-  --primary-color: #04376a; /* Dark Blue */
-  --secondary-color: #063970; /* Lighter Dark Blue */
-  --background-color: #f4f7fb; /* Light Background */
-  --card-background: #ffffff; /* White */
-  --hover-bg-color: #eaf1fb; /* Light Blue Hover */
-  --button-bg-color: #04376a; /* Button Background */
-  --button-hover-bg-color: #022f5c; /* Darker Button Hover */
-  --text-color: #333; /* Dark Text */
-  --secondary-text-color: #555; /* Lighter Text */
-  --border-color: #ddd; /* Border Color */
-  --time-btn-border-color: #04376a; /* Time Button Border */
-  --pill-count-color: #04376a; /* Pill Count Color */
+  --primary-color: #04376a;
+  --secondary-color: #063970; 
+  --background-color: #f4f7fb; 
+  --card-background: #ffffff;
+  --hover-bg-color: #eaf1fb;
+  --button-bg-color: #04376a; 
+  --button-hover-bg-color: #022f5c; 
+  --text-color: #333; 
+  --secondary-text-color: #555; 
+  --border-color: #ddd;
+  --time-btn-border-color: #04376a;
+  --pill-count-color: #04376a;
 }
 
 body {
@@ -20,7 +20,7 @@ body {
   margin: 0;
   padding: 0;
   color: var(--text-color);
-  font-size: 1rem; /* Set base font size */
+  font-size: 1rem; 
 }
 
 nav#navbar {
@@ -41,7 +41,7 @@ nav#navbar {
 }
 
 #navbar a:hover {
-  color: var(--secondary-color); /* darker blue on hover */
+  color: var(--secondary-color); 
 }
 
 #userInfo {
@@ -73,7 +73,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--button-hover-bg-color); /* darker blue on hover */
+  background-color: var(--button-hover-bg-color); 
 }
 
 /* Profile Header */
@@ -88,7 +88,10 @@ button:hover {
   color: var(--secondary-text-color);
 }
 
-/* Card Styling */
+
+
+
+/* Cardz */
 .card {
   border: none;
   border-radius: 1rem;
@@ -103,7 +106,7 @@ button:hover {
   color: white;
 }
 
-/* Time Slot Buttons */
+/* Time Buttons */
 .time-btn {
   min-width: 10vw;
   font-weight: 500;
@@ -117,6 +120,7 @@ button:hover {
   color: #fff;
 }
 
+
 /* Upcoming Bookings */
 #bookingList li {
   margin-bottom: 1.2rem;
@@ -128,7 +132,7 @@ button:hover {
 }
 
 #bookingList li:hover {
-  background-color: var(--hover-bg-color); /* subtle light blue */
+  background-color: var(--hover-bg-color); 
 }
 
 /* Prescription Form */
@@ -144,7 +148,7 @@ button:hover {
   color: var(--pill-count-color);
 }
 
-/* Responsive Design */
+
 @media (max-width: 767px) {
   nav#navbar {
     flex-direction: column;

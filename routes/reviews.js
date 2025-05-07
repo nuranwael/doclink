@@ -1,4 +1,3 @@
-// In routes/reviews.js
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
@@ -6,7 +5,6 @@ const Review = require('../models/Review');
 const Booking = require('../models/Booking');
 
 
-// POST - Submit a review (protected route)
 router.post('/', async (req, res) => { 
   const { bookingId, attitude, cleanliness, experience } = req.body;
 
@@ -33,7 +31,6 @@ router.post('/', async (req, res) => {
 
     await review.save();
 
-    // Optionally, update the booking status to 'reviewed'
     booking.status = 'reviewed';
     await booking.save();
 

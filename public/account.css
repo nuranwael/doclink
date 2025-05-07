@@ -1,20 +1,19 @@
 /* Color Palette */
 :root {
-  --primary-color: #04376a; /* Dark Blue */
-  --secondary-color: #063970; /* Lighter Dark Blue */
-  --background-color: #f4f7fb; /* Light Background */
-  --card-background: #ffffff; /* White */
-  --hover-bg-color: #eaf1fb; /* Light Blue Hover */
-  --button-bg-color: #04376a; /* Button Background */
-  --button-hover-bg-color: #022f5cac; /* Darker Button Hover */
-  --text-color: #333; /* Dark Text */
-  --secondary-text-color: #555; /* Lighter Text */
-  --border-color: #ddd; /* Border Color */
-  --time-btn-border-color: #04376a; /* Time Button Border */
-  --pill-count-color: #04376a; /* Pill Count Color */
+  --primary-color: #04376a; 
+  --secondary-color: #063970; 
+  --background-color: #f4f7fb;
+  --card-background: #ffffff;
+  --hover-bg-color: #eaf1fb; 
+  --button-bg-color: #04376a; 
+  --button-hover-bg-color: #022f5cac; 
+  --text-color: #333; 
+  --secondary-text-color: #555;
+  --border-color: #ddd; 
+  --time-btn-border-color: #04376a;
+  --pill-count-color: #04376a;
 }
 
-/* Base Styling */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--background-color);
@@ -118,7 +117,7 @@ nav#navbar {
   margin-top: 0.5rem;
 }
 
-/* Button Styling */
+/* Buttons*/
 button {
   margin-top: 2rem;
   padding: 0.8rem 1.2rem;

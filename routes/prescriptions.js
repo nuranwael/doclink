@@ -1,4 +1,3 @@
-// routes/prescriptions.js
 const express = require('express');
 const router = express.Router();
 const Prescription = require('../models/Prescription');
@@ -16,7 +15,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// routes/prescriptions.js
 router.get('/patient/:patientId', async (req, res) => {
     try {
       const prescriptions = await Prescription.find({ patientId: req.params.patientId }).populate('doctorId', 'fullname');

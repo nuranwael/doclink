@@ -35,9 +35,9 @@ body {
     color: var(--textColor);
 }
 
-/*------------------------------------------------
+/*
     Header Section
-------------------------------------------------*/
+*/
 header {
     background-color: rgba(3, 82, 119, 0.137);
     display: flex;
@@ -85,9 +85,7 @@ nav ul li a.active {
     text-shadow: 0.0625rem 0.0625rem 0.0625rem rgb(160, 158, 160);
 }
 
-/*------------------------------------------------
-    MAIN SECTION
-------------------------------------------------*/
+/* MAIN SECTION */
 .bodyy {
     background-size: cover;
     background-position: center;
@@ -108,7 +106,6 @@ main {
     z-index: 2;
 }
 
-/* Main background using docs.png with 2px blur */
 main::before {
     content: "";
     position: absolute;
@@ -122,7 +119,7 @@ main::before {
     z-index: -1;
 }
 
-/* Content inside main */
+
 .content {
     text-align: center;
     max-width: 100rem;
@@ -146,9 +143,7 @@ h2 {
     margin-top: 1rem;
 }
 
-/*------------------------------------------------
-    Button Styling (for Sign Up)
-------------------------------------------------*/
+/*BUTTON*/
 a {
     color: initial;
     text-decoration: none;
@@ -225,9 +220,7 @@ button:hover .arrow:before {
     right: 0;
 }
 
-/*------------------------------------------------
-    Burger Menu & Responsive Navbar
-------------------------------------------------*/
+/*MENU*/
 .burger input {
     display: none;
 }
@@ -312,9 +305,7 @@ button:hover .arrow:before {
     }
 }
 
-/*------------------------------------------------
-    Footer Section
-------------------------------------------------*/
+/*FOOTER*/
 .footer {
     text-align: center;
     background-color: rgba(0, 33, 71, 0.8);
@@ -357,9 +348,7 @@ button:hover .arrow:before {
     text-decoration: underline;
 }
 
-/*------------------------------------------------
-    SERVICES CARDS SECTION 
-------------------------------------------------*/
+/*OUR SERVICES*/
 .cards-section {
     padding: 2.5rem 1.25rem;
     text-align: center;
@@ -381,7 +370,7 @@ img#bgg{
 
 }
 
-/* Adjust gap so service cards are on the same level with extra space */
+
 .cards {
     display: flex;
     justify-content: center;
@@ -391,7 +380,6 @@ img#bgg{
     padding-bottom: 4rem;
 }
 
-/* Card Wrapper: groups the doc image with the card so both scale together */
 .card-wrapper {
     position: relative;
     width: 18rem;
@@ -409,7 +397,7 @@ img#bgg{
     opacity: 0.7;
 }
 
-/* Doctor image: remains at 90% width of the wrapper, and is behind the card */
+
 .doc-icon {
     display: block;
     width: 90%;
@@ -418,8 +406,7 @@ img#bgg{
     z-index: 1;
 }
 
-/* The service card overlays approximately 20% of the doc image.
-   Its z-index is higher than the doc-icon so it appears in front. */
+
 .cardz {
     background-color: rgba(0, 33, 71, 0.401);
     border: 0.125rem solid #ccc;
@@ -440,7 +427,7 @@ img#bgg{
     text-shadow: 0.625rem 0.625rem 0.5rem rgba(0,0,0,0.3);
 }
 
-/* Hover effect applied only on the card */
+
 .card:hover {
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
     border-color: var(--mainColor);
@@ -457,7 +444,7 @@ img#bgg{
  #cardaya2{
     top: -8rem;
  }
-/* Make paragraphs in cards bigger and beige */
+
 .more-text {
     display: none;
     margin-bottom: 0.9375rem;
@@ -466,7 +453,7 @@ img#bgg{
     line-height: 1.4;
 }
 
-/* Center the buttons inside cards */
+
 .read-more {
     background: rgba(0, 0, 0, 0.155);
     color: #ffffff;
@@ -488,9 +475,7 @@ img#bgg{
     transform: scale(1.05);
 }
 
-/*------------------------------------------------
-    New Section: Count-Up and 3D Card in Flex Display
-------------------------------------------------*/
+/*about us*/
 .countup-cards-section {
     padding: 5rem 3.125rem;
     display: flex;
@@ -525,7 +510,7 @@ img#bgg{
     color: var(--textColor);
 }
 
-/* 3D Card (from Uiverse.io) */
+/* 3D Card*/
 .card {
     width: 40vw;
     height: 60vh;
@@ -610,9 +595,7 @@ img#bgg{
     transform: translateX(100%);
 }
 
-/*------------------------------------------------
-    Scroll Snap & Animation
-------------------------------------------------*/
+/*animations*/
 section {
     scroll-snap-align: start;
 }
@@ -628,9 +611,7 @@ section {
     transform: translateY(0);
 }
 
-/*------------------------------------------------
-    Responsive Adjustments
-------------------------------------------------*/
+/*----------------------------------------*/
 @media (max-width: 768px) {
     main {
         width: 100%;

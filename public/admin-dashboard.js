@@ -3,7 +3,7 @@ async function fetchData(endpoint) {
     return res.json();
   }
   
-  // 📥 Load Users
+  // Load Users
   async function loadUsers() {
     const users = await fetchData('users');
     const tbody = document.getElementById('usersTableBody');
@@ -24,14 +24,14 @@ async function fetchData(endpoint) {
       tbody.appendChild(tr);
     });
   
-    // Update stats
+  
     document.getElementById('totalDoctors').innerText = users.filter(u => u.role === 'doctor').length;
     document.getElementById('totalPatients').innerText = users.filter(u => u.role === 'patient').length;
   
     setupUserSearch();
   }
   
-  // 📥 Load Bookings
+  //  Load Bookings
   async function loadBookings() {
     const bookings = await fetchData('bookings');
     const tbody = document.getElementById('bookingsTableBody');
@@ -52,11 +52,11 @@ async function fetchData(endpoint) {
       tbody.appendChild(tr);
     });
   
-    // Update stats
+    
     document.getElementById('totalBookings').innerText = bookings.length;
   }
   
-  // 📥 Load Reviews
+  //  Load Reviews
 async function loadReviews() {
     const reviews = await fetchData('reviews');
     const tbody = document.getElementById('reviewsTableBody');
@@ -110,7 +110,7 @@ async function loadReviews() {
   }
   
   
-  // 🗑️ Delete a Booking
+  // Delete a Booking
   async function deleteBooking(bookingId) {
     const confirm = await Swal.fire({
       title: 'Are you sure?',
@@ -164,7 +164,7 @@ async function loadReviews() {
   }
   
   
-  // 🔎 User search filter
+  //  User search filter
   function setupUserSearch() {
     const input = document.getElementById('userSearch');
     input.addEventListener('input', function() {
@@ -193,7 +193,7 @@ async function loadReviews() {
   };
   
   
-  // 🔐 Logout
+  // Logout
   function logout() {
     localStorage.clear();
     window.location.href = "/Login.html";
@@ -206,7 +206,7 @@ async function loadReviews() {
     const users = await fetchData('users');
     const bookings = await fetchData('bookings');
   
-    // 🔵 Line Chart for Bookings
+    //  Line Chart for Bookings
     const bookingsByDate = {};
     bookings.forEach(b => {
       bookingsByDate[b.date] = (bookingsByDate[b.date] || 0) + 1;
@@ -225,7 +225,7 @@ async function loadReviews() {
           data: counts,
           borderColor: '#5e72e4',
           backgroundColor: 'rgba(94, 114, 228, 0.2)',
-          tension: 0.4, // Smooth curve
+          tension: 0.4, 
           fill: true,
         }]
       },
@@ -235,8 +235,8 @@ async function loadReviews() {
           legend: { display: false }
         },
         animation: {
-          duration: 1500, // 1.5 seconds
-          easing: 'easeInOutQuart', // Smooth animation
+          duration: 1500, 
+          easing: 'easeInOutQuart',
         },
         scales: {
           y: {
@@ -246,7 +246,7 @@ async function loadReviews() {
       }
     });
   
-    // 🟣 Pie Chart for Users
+    // Pie Chart for Users
     const doctorsCount = users.filter(u => u.role === 'doctor').length;
     const patientsCount = users.filter(u => u.role === 'patient').length;
   
@@ -267,8 +267,8 @@ async function loadReviews() {
           legend: { position: 'bottom' }
         },
         animation: {
-          animateScale: true, // Pop-in effect
-          animateRotate: true, // Rotation effect
+          animateScale: true, 
+          animateRotate: true, 
           duration: 1500,
           easing: 'easeOutBounce'
         }

@@ -42,7 +42,7 @@ doctorCard.addEventListener("click", async function (e) {
         const details = doctorCard.querySelector(".booking-details");
         const isHidden = details.classList.contains("d-none");
 
-        // Collapse others (optional)
+      
         document.querySelectorAll(".doctor-card").forEach(card => {
             card.classList.remove("expanded");
             card.querySelector(".booking-details").classList.add("d-none");
@@ -113,7 +113,7 @@ async function loadAvailability(card, doctorId, doctorName) {
                 card.querySelectorAll(".date-btn").forEach(b => b.classList.remove("active"));
                 dateBtn.classList.add("active");
 
-                // Load time slots
+               
                 timeButtonsDiv.innerHTML = '';
                 slot.timeSlots.forEach(time => {
                     const timeBtn = document.createElement("button");
@@ -136,7 +136,7 @@ async function loadAvailability(card, doctorId, doctorName) {
        
           
 
-        // Book button logic
+      
         const bookBtn = card.querySelector(".book-btn");
         bookBtn.onclick = async () => {
             const patient = JSON.parse(localStorage.getItem("user"));
@@ -187,12 +187,12 @@ async function loadReviews(doctorId, card) {
         return;
       }
   
-      // ➕ Calculate average score
+     
       const total = reviews.length;
       const sum = reviews.reduce((acc, r) => acc + (r.attitude + r.cleanliness + r.experience) / 3, 0);
       const avg = (sum / total).toFixed(1);
   
-      // ⭐ Display average stars
+      
       const stars = '★'.repeat(Math.round(avg)) + '☆'.repeat(5 - Math.round(avg));
   
       const avgDiv = document.createElement('div');
@@ -200,7 +200,7 @@ async function loadReviews(doctorId, card) {
       avgDiv.innerHTML = `<strong>Average Rating:</strong> <span style="font-size: 1.2em; color: orange;">${stars}</span> (${avg}/5)`;
       reviewsList.appendChild(avgDiv);
   
-      // 🔁 Show individual reviews as stars only
+      
       reviews.forEach(review => {
         const reviewItem = document.createElement('div');
         reviewItem.classList.add('review-item', 'mb-2', 'p-2', 'border', 'rounded');

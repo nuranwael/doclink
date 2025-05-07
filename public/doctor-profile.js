@@ -12,7 +12,6 @@ if (doctor?.fullname && doctor?.role === "doctor") {
 const loggedInUser = JSON.parse(localStorage.getItem("user"));
 if (loggedInUser) {
   document.getElementById("username").textContent = loggedInUser.username;
-  // If you store image URL later: document.getElementById("userPic").src = loggedInUser.profilePic;
 } else {
   window.location.href = "/login.html";
 }
@@ -22,7 +21,7 @@ function logout() {
   window.location.href = "/login.html";
 }
 
-// Toggle time selection
+
 document.querySelectorAll(".time-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     btn.classList.toggle("active");
@@ -62,7 +61,7 @@ async function loadUpcomingBookings() {
     const bookings = await res.json();
 
     const list = document.getElementById("bookingList");
-    list.innerHTML = ""; // Clear old bookings
+    list.innerHTML = "";
 
     if (!bookings.length) {
       list.innerHTML = "<li class='list-group-item'>No upcoming bookings.</li>";

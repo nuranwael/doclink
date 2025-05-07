@@ -4,9 +4,9 @@ const User = require('../models/user');
 const Booking = require('../models/Booking');
 const Review = require('../models/Review');
 
-// ❌ No authentication, no isAdmin, only simple routes
 
-// Get all users
+
+// display users
 router.get('/users', async (req, res) => {
   try {
     const users = await User.find().select('-password');
@@ -17,7 +17,7 @@ router.get('/users', async (req, res) => {
   }
 });
 
-// Get all bookings
+//display bookings
 router.get('/bookings', async (req, res) => {
   try {
     const bookings = await Booking.find().populate('doctorId patientId');
@@ -28,7 +28,7 @@ router.get('/bookings', async (req, res) => {
   }
 });
 
-// Get all reviews
+// display reviews
 router.get('/reviews', async (req, res) => {
   try {
     const reviews = await Review.find();
@@ -39,7 +39,7 @@ router.get('/reviews', async (req, res) => {
   }
 });
 
-// DELETE user by ID
+// DELETE USERS
 router.delete('/users/:id', async (req, res) => {
   try {
     const deleted = await User.findByIdAndDelete(req.params.id);
@@ -54,7 +54,7 @@ router.delete('/users/:id', async (req, res) => {
 });
 
 
-// DELETE a booking
+// DELETE BOOKINGS
 router.delete('/bookings/:id', async (req, res) => {
   try {
     const deletedBooking = await Booking.findByIdAndDelete(req.params.id);
@@ -68,7 +68,7 @@ router.delete('/bookings/:id', async (req, res) => {
   }
 });
 
-// DELETE a review
+// DELETE REVIEWS
 router.delete('/reviews/:id', async (req, res) => {
   try {
     const deletedReview = await Review.findByIdAndDelete(req.params.id);

@@ -186,13 +186,13 @@
 
   const reviewData = { bookingId, attitude, cleanliness, experience };
 
-  // Get the JWT token from localStorage
-  const token = localStorage.getItem('token');  // Token is stored in 'token'
+ 
+  const token = localStorage.getItem('token');  
 
-  // Check if token is available
+  
   if (!token) {
     alert('You are not logged in. Please log in to submit a review.');
-    window.location.href = '/Login.html';  // Redirect to login page
+    window.location.href = '/Login.html'; 
     return;
   }
 
@@ -201,7 +201,7 @@
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`,  // Send the token as Bearer token in headers
+        'Authorization': `Bearer ${token}`,  
       },
       body: JSON.stringify(reviewData),
     });
@@ -218,7 +218,7 @@
     alert('An error occurred while submitting the review.');
   }
 
-  toggleReviewForm(index);  // Hide review form after submission
+  toggleReviewForm(index); 
 }
 
   </script>

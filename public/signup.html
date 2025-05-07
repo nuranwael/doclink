@@ -45,7 +45,7 @@
     </div>
     
 
-<!-- Doctor-specific fields (shown only if role === doctor) -->
+
 <div id="doctorFields" style="display: none;" class="container">
     <label for="specialty">SPECIALTY:</label>
     <input type="text" id="specialty" name="specialty"><br>
@@ -55,7 +55,7 @@
 </div>
 
 <script>
-  // Show/hide specialty/address when doctor is selected
+  
   document.getElementById('role').addEventListener('change', function () {
       const doctorFields = document.getElementById('doctorFields');
       doctorFields.style.display = this.value === 'doctor' ? 'block' : 'none';

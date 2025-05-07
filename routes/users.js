@@ -4,11 +4,11 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const router = express.Router();
 
-// Register User (Patient or Doctor)
+// SIGNUP ROUTE
 router.post('/signup', async (req, res) => {
     const { fullname, username, email, phone, password, role, specialty, address } = req.body;
 
-    console.log("📥 Received signup data:", req.body);
+    console.log("Received signup data:", req.body);
 
     if (!fullname || !username || !email || !password || !role) {
         return res.status(400).json({ error: 'All fields are required, including role.' });
@@ -104,7 +104,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
-// GET /api/doctors?specialty=Cardiologist&username=sarah
+// SEARCH DOCTORS
 router.get('/doctors', async (req, res) => {
     try {
         const { specialty, username } = req.query;
@@ -112,11 +112,11 @@ router.get('/doctors', async (req, res) => {
         const query = { role: 'doctor' };
 
         if (specialty && specialty !== "Choose a specialty") {
-            query.specialty = new RegExp(specialty, 'i'); // case-insensitive
+            query.specialty = new RegExp(specialty, 'i');
         }
 
         if (username) {
-            query.fullname = new RegExp(username, 'i'); // match part of fullname
+            query.fullname = new RegExp(username, 'i'); 
         }
 
         const doctors = await User.find(query).select('-password');
