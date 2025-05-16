@@ -1,5 +1,5 @@
 /*------------------------------------------------
-  Base Reset & Fonts
+  Base Styles
 ------------------------------------------------*/
 * {
     margin: 0;
@@ -16,9 +16,9 @@
 
 }
 
-/*------------------------------------------------
-    General Selections & Body Background
-------------------------------------------------*/
+/*
+    Body Background
+*/
 ::selection {
     background-color: var(--mainColor);
     color: var(--textColor);
