@@ -21,6 +21,17 @@ document.getElementById('signupForm').addEventListener('submit', async function 
         return;
     }
 
+    app.post('/api/signup', async (req, res) => {
+  const { email, password } = req.body;
+
+  const result = await validateEmail(email);
+
+  if (!result.is_valid_format.value || !result.smtp_check || result.is_disposable_email) {
+    return res.status(400).json({ message: 'Invalid or fake email address.' });
+  }
+});
+
+
     const userData = { fullname, username, email, phone, password, role };
 
     if (role === 'doctor') {
