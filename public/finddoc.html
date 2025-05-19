@@ -9,13 +9,18 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <nav id="navbar" style="padding: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 4vh;
-    font-weight: bolder;
-    text-shadow: 0.0225rem 0.0225rem 0.0225rem rgb(0, 0, 0);">
-        <div>
-          <h3 style="background: transparent;"><a style="background: transparent;" href="index.html">DOCLINK</a></h3> 
-        </div>
-      </nav>
+    <nav id="navbar" >
+  <div>
+    <a href="index.html">Home</a> |
+    <a href="finddoc.html">Find Doctor</a>
+  </div>
+  <div id="userInfo">
+    <img id="userPic" src="fpf.jpg" alt="User Pic" style="width: 32px; height: 32px; border-radius: 50%;" />
+    <span id="username">Loading...</span>
+    <button onclick="logout()">Logout</button>
+  </div>
+</nav>
+
 
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center">

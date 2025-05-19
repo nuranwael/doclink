@@ -38,6 +38,17 @@ app.use('/api/reviews', reviewsRouter);
 app.use('/api/admin', adminRoutes);
 
 
+//  Email Validator
+const emailValidatorRoute = require('./routes/emailValidator'); 
+
+
+app.use('/api', emailValidatorRoute);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
 
 // Frontend static path
 const staticPath = path.join(__dirname, 'public');

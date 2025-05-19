@@ -223,4 +223,28 @@ async function loadReviews(doctorId, card) {
       reviewsList.innerHTML = '<p style="color:red;">Failed to load reviews.</p>';
     }
   }
-  
+ 
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (!user) {
+    alert("You're not logged in.");
+    window.location.href = "/login.html";
+  } else {
+    document.getElementById("username").textContent = user.username;
+    document.getElementById("userPic").src = user.image || "fpf.jpg"; // fallback image
+  }
+
+  document.getElementById("username").addEventListener("click", () => {
+    if (user.role === "doctor") {
+      window.location.href = "doctor-profile.html";
+    } else {
+      window.location.href = "account.html";
+    }
+  });
+
+  function logout() {
+    localStorage.clear();
+    alert("You have been logged out.");
+    window.location.href = "/login.html";
+  }
+

@@ -60,3 +60,4 @@ document.getElementById('signupForm').addEventListener('submit', async function 
         alert("Network error. Please check your connection or ensure the server is running.");
     }
 });
+
