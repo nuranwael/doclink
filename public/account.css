@@ -22,50 +22,64 @@ body {
   color: var(--text-color);
   font-size: 1rem;
 }
-
-/* Navbar */
-nav#navbar {
-  background-color: rgba(255, 255, 255, 0.125);
-  border-bottom: 1px solid var(--border-color);
-  padding: 1rem 2rem;
-  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+ /* Navbar */
+  nav#navbar {
+ background-color: rgba(255, 255, 255, 0.137);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom:94%;
+    width: 100%;
+    z-index: 1000;
+    padding: 0.625rem 1.875rem;
+    backdrop-filter: blur(10px);
+    border-radius: 0.625rem;
 }
-
-#navbar a {
+  
+  #navbar a {
   text-decoration: none;
-  color: var(--text-color);
-  margin-right: 1rem;
+  color: rgb(0, 0, 0);
+  margin-right: 3vw;
   font-weight: 500;
   transition: color 0.3s ease;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #navbar a:hover {
-  color: var(--secondary-color);
+  color: var(--secondary-color); 
 }
 
 #userInfo {
   display: flex;
   align-items: center;
+  margin-left: auto;
+  margin-right: 3vw; 
+  gap: 1rem;
+  font-size: 1rem;
 }
 
 #userPic {
-  width: 2.25rem;
-  height: 2.25rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   object-fit: cover;
-  border: 0.125rem solid var(--secondary-color);
-  margin-right: 0.5rem;
+  border: 0.2rem solid var(--secondary-color);
+  margin-top: 1.6rem;
+  
 }
 
 #username {
   font-weight: 600;
-  color: var(--text-color);
+   text-decoration: none;
+  color: black;
+  cursor: pointer;
+    margin-top: 1.5rem;
 }
+
+
 
 /* Account Container */
 .account-container {
