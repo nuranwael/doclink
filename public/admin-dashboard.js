@@ -193,7 +193,7 @@ async function loadReviews() {
   };
   
   
-  // Logout
+  // Logout function
   function logout() {
     localStorage.clear();
     window.location.href = "/login.html";
@@ -207,6 +207,7 @@ async function loadReviews() {
     const bookings = await fetchData('bookings');
   
     //  Line Chart for Bookings
+    
     const bookingsByDate = {};
     bookings.forEach(b => {
       bookingsByDate[b.date] = (bookingsByDate[b.date] || 0) + 1;
